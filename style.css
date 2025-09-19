@@ -1,0 +1,310 @@
+/* ===== Reset + Base ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+  background: #4a5c824b;
+  color: #0f0e0e;
+  line-height: 1.6;
+}
+html { scroll-behavior: smooth; }
+
+/* ===== Header / Hero ===== */
+header {
+  background: linear-gradient(120deg, #011562, #050f2a72);
+  color: rgb(239, 227, 227);
+  padding: 80px 20px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+header h1 {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  display: inline-block;
+  padding: 14px 30px;
+  border-radius: 10px;
+  font-size: 2.8rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+header p {
+  font-size: 1.2rem;
+  margin-top: 15px;
+  opacity: 0.9;
+}
+
+/* ===== Navigation ===== */
+nav {
+  background: #d5d8d8;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 15px 25px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+nav a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+nav a:hover, nav a.active {
+  background: #6608a0;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ===== Dropdown ===== */
+.dropdown { position: relative; }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: white;
+  min-width: 200px;
+  border-radius: 10px;
+  top: 48px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+.dropdown-content a {
+  display: block;
+  color: #4a148c;
+  padding: 12px 16px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.dropdown-content a:hover { background: #f3e5f5; }
+.dropdown:hover .dropdown-content { display: block; }
+
+/* ===== Container ===== */
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.hidden { display: none; }
+
+/* ===== Dashboard Stats ===== */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+.stat-card {
+  background: linear-gradient(135deg, #813fa9, #4a148c);
+  color: white;
+  border-radius: 16px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+.stat-card:hover { transform: scale(1.05); }
+.stat-card i { font-size: 2.5rem; margin-bottom: 12px; }
+.stat-card h3 { font-size: 2rem; font-weight: 700; }
+
+/* ===== Cards ===== */
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  margin: 30px 0;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+.card h3 { margin-bottom: 15px; color: #4a148c; }
+
+/* ===== Forms ===== */
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.form-group.full-width { grid-column: span 2; }
+.form input, .form select, .form textarea {
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 1rem;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.form input:focus, .form select:focus, .form textarea:focus {
+  border-color: #6a1b9a;
+  box-shadow: 0 0 6px rgba(106,27,154,0.3);
+  outline: none;
+}
+.form button {
+  grid-column: span 2;
+  padding: 16px;
+  background: linear-gradient(135deg, #43a047, #2e7d32);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.form button:hover {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  transform: scale(1.05);
+}
+
+/* ===== Lists ===== */
+.data-list { list-style: none; padding: 0; }
+.data-list li {
+  background: #fff;
+  padding: 18px;
+  margin: 12px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ===== Footer ===== */
+footer {
+  background: #4a148c;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 60px;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+/* ===== About & Contact ===== */
+h2 { color: #4a148c; margin-bottom: 20px; font-weight: 600; }
+p { margin: 12px 0; }
+textarea { resize: vertical; }
+
+/* ===== Login Page ===== */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+.login-box {
+  background: white;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  width: 380px;
+  text-align: center;
+}
+.login-box h2 {
+  color: #6a1b9a;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+.login-box input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.login-box input:focus {
+  border-color: #6a1b9a;
+  box-shadow: 0 0 6px rgba(106,27,154,0.3);
+  outline: none;
+}
+.login-box button {
+  width: 100%;
+  padding: 14px;
+  background: #6a1b9a;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.login-box button:hover {
+  background: #4a148c;
+  transform: translateY(-2px);
+}
+.hint {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 12px;
+}
+
+/* ===== Chatbox Styles ===== */
+#chatbox {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 320px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 2000;
+}
+#chatbox-header {
+  background: #6a1b9a;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+}
+#chatbox-close {
+  position: absolute;
+  right: 12px;
+  top: 6px;
+  cursor: pointer;
+}
+#chatbox-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 0.9rem;
+}
+#chatbox-messages p {
+  margin: 6px 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+.user-msg {
+  background: #6a1b9a;
+  color: white;
+  text-align: right;
+}
+.bot-msg {
+  background: #f1f1f1;
+  text-align: left;
+}
+#chatbox-input {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+#chatbox-input input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+#chatbox-input button {
+  background: #43a047;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+#chatbox-input button:hover {
+  background: #2e7d32;
+}

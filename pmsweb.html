@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Patient Management System</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Smart Patient Management System</h1>
+    <p>Pakenham Hospital – Advanced Healthcare Management</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#home" class="active">Home</a>
+ 
+    <a href="#appointments">Appointments</a>
+    <a href="#contact">Contact</a>
+    <div class="dropdown">
+      <a href="#"><i class="fas fa-user-lock"></i> Login ▾</a>
+      <div class="dropdown-content">
+        <a href="#" onclick="showLogin('patient')">Patient Login</a>
+        <a href="#" onclick="showLogin('doctor')">Doctor Login</a>
+        <a href="#" onclick="showLogin('admin')">Admin Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home -->
+  <div class="container" id="home">
+    <div class="dashboard-stats">
+      <div class="stat-card"><i class="fas fa-user-injured"></i><h3>142</h3><p>Total Patients</p></div>
+      <div class="stat-card"><i class="fas fa-user-md"></i><h3>24</h3><p>Medical Staff</p></div>
+      <div class="stat-card"><i class="fas fa-calendar-check"></i><h3>18</h3><p>Today's Appointments</p></div>
+      <div class="stat-card"><i class="fas fa-clock"></i><h3>7</h3><p>Pending Requests</p></div>
+    </div>
+  </div>
+
+   <!-- About PMS -->
+  <div class="card">
+    <h2>About Patient Management System</h2>
+    <p>
+      The Smart Patient Management System (PMS) is a digital healthcare solution designed to simplify hospital operations. 
+      It helps in managing patient records, doctor schedules, and appointments efficiently. 
+      By integrating patients, doctors, and administrators into a single platform, 
+      PMS improves communication, reduces paperwork, and ensures better quality of care.
+    </p>
+
+<p><strong>Key Features:</strong></p>
+<p>
+  • Centralized patient records for quick and secure access.<br>
+  • Online appointment booking, rescheduling, and reminders.<br>
+  • Doctor and staff dashboards with real-time patient information.<br>
+  • Administrative tools for managing users, reports, and hospital operations.<br>
+  • Secure and scalable design suitable for hospitals of all sizes.
+</p>
+
+<p><strong>Benefits:</strong></p>
+<p>
+  • Improves communication between doctors, patients, and staff.<br>
+  • Reduces paperwork through paperless digital workflows.<br>
+  • Enhances patient care with accurate, updated medical data.<br>
+  • Boosts operational efficiency and reduces errors.<br>
+  • Generates reports and analytics for better decision-making.
+</p>
+
+  </div>
+</div>
+
+
+
+<!-- Chatbox AI -->
+<div id="chatbox">
+  <div id="chatbox-header">💬 AI Assistant</div>
+  <div id="chatbox-messages"></div>
+  <div id="chatbox-input">
+    <input type="text" id="chatboxText" placeholder="Ask me anything..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+
+  <!-- Dashboard -->
+  <div class="container hidden" id="dashboardSection">
+    <h2 id="welcome"></h2>
+    <h3 id="roleHeading"></h3>
+    <ul class="data-list" id="appointmentsList"></ul>
+    <button class="form button" onclick="logout()">Logout</button>
+  </div>
+
+  <!-- Appointments -->
+  <div class="container hidden" id="appointments">
+    <h2><i class="fas fa-calendar-check"></i> Book Appointment</h2>
+    <div class="card">
+      <form class="form" onsubmit="addAppointment(event)">
+        <div class="form-group">
+          <label for="patientName">Patient Name</label>
+          <input type="text" id="patientName">
+        </div>
+        <div class="form-group">
+          <label for="doctorName">Doctor</label>
+          <select id="doctorName">
+            <option value="">Select Doctor</option>
+            <option value="Dr. Rozan">Dr. Rozan (Cardiology)</option>
+            <option value="Dr. Prakriti">Dr. Prakriti (Dermatology)</option>
+            <option value="Dr. Anjila">Dr. Anjila (Pediatrics)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" id="date">
+        </div>
+        <div class="form-group">
+          <label for="time">Time</label>
+          <input type="time" id="time">
+        </div>
+        <div class="form-group full-width">
+          <label for="reason">Reason</label>
+          <input type="text" id="reason" placeholder="Reason for appointment">
+        </div>
+        <button type="submit">Book Appointment</button>
+      </form>
+    </div>
+    <div class="card">
+      <h3>Upcoming Appointments</h3>
+      <ul class="data-list" id="appointmentList"></ul>
+    </div>
+  </div>
+
+  <!-- Login Section -->
+<div class="container hidden" id="loginPage">
+  <div class="login-container">
+    <div class="login-box">
+      <h2 id="loginTitle">Login</h2>
+      <form id="loginForm">
+        <input type="text" id="username" placeholder="Enter Username">
+        <input type="password" id="password" placeholder="Enter Password">
+        <button type="submit">Login</button>
+      </form>
+      <p class="hint" id="loginHint">Please select a role to log in</p>
+      <p id="loginMessage"></p>
+    </div>
+  </div>
+</div>
+
+  
+
+
+  <!-- Contact -->
+  <div class="container" id="contact">
+    <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+    <div class="card">
+      <form class="form">
+        <div class="form-group">
+          <label for="contactName">Name</label>
+          <input type="text" id="contactName" placeholder="Your Name">
+        </div>
+        <div class="form-group">
+          <label for="contactEmail">Email</label>
+          <input type="email" id="contactEmail" placeholder="Your Email">
+        </div>
+        <div class="form-group full-width">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" placeholder="Subject">
+        </div>
+        <div class="form-group full-width">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Write your message"></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+    <div class="contact-info">
+      <div class="info-card"><i class="fas fa-map-marker-alt"></i><p>123 Pakenham St, Melbourne, VIC</p></div>
+      <div class="info-card"><i class="fas fa-phone"></i><p>+61 400 555 123</p></div>
+      <div class="info-card"><i class="fas fa-envelope"></i><p>info@pms.com.au</p></div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Smart Patient Management System | Pakenham Hospital
+  </footer>
+</body>
+</html>
